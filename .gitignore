@@ -1,0 +1,50 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+.venv-*/
+
+# Local configuration and secrets
+.env
+.env.*
+config/settings.yaml
+
+# Private voice data
+samples/raw/*
+samples/clean/*
+!samples/raw/.gitkeep
+!samples/clean/.gitkeep
+
+# Voice profiles and model artifacts
+voice_profiles/*
+!voice_profiles/README.md
+models/
+checkpoints/
+*.ckpt
+*.pth
+*.pt
+*.onnx
+*.safetensors
+
+# Generated media and local delivery outputs
+output/audio_scenes/*
+output/audio_chunks/*
+output/captions/*
+output/manifests/*
+output/packages/*
+!output/audio_scenes/.gitkeep
+!output/audio_chunks/.gitkeep
+!output/captions/.gitkeep
+!output/manifests/.gitkeep
+!output/packages/.gitkeep
+
+# Tool outputs
+logs/
+tmp/

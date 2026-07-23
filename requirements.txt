@@ -1,0 +1,5 @@
+# Qwen3-TTS long-scene workflow dependencies.
+#
+# Install these inside `.venv-qwen3-tts`.
+qwen-tts==0.1.1
+PyYAML>=6.0

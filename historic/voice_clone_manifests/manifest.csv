@@ -1,0 +1,6 @@
+scene_id,clip_name,start_time,end_time,duration_seconds,text,audio_path,srt_path,vtt_path
+001,arrival_airport,00:00:05,00:00:12,7.040,我们终于抵达了这次旅程的第一站，新的旅程也从这里正式开始。,output/audio_clips/arrival_airport.wav,output/captions/arrival_airport.srt,output/captions/arrival_airport.vtt
+002,mountain_view,00:00:18,00:00:27,9.280,远处的山脉在云层间慢慢显现，阳光洒下来的一刻，整个画面都变得安静而壮观。,output/audio_clips/mountain_view.wav,output/captions/mountain_view.srt,output/captions/mountain_view.vtt
+003,quiet_lake,00:00:31,00:00:40,7.600,清晨的湖面几乎没有一丝波纹，倒影让眼前的风景显得格外安静。,output/audio_clips/quiet_lake.wav,output/captions/quiet_lake.srt,output/captions/quiet_lake.vtt
+004,coastal_walk,00:00:45,00:00:53,7.520,我们沿着海边慢慢往前走，风从水面吹过来，带着一点凉意。,output/audio_clips/coastal_walk.wav,output/captions/coastal_walk.srt,output/captions/coastal_walk.vtt
+005,evening_reflection,00:00:58,00:01:07,8.400,旅行最珍贵的地方，往往不是抵达终点，而是途中这些意外安静的时刻。,output/audio_clips/evening_reflection.wav,output/captions/evening_reflection.srt,output/captions/evening_reflection.vtt
