@@ -113,6 +113,38 @@ Rules:
 7. Review actual `duration_seconds` against the target timeline slot.
 8. Import WAV and SRT files into DaVinci Resolve Studio.
 
+## Validation Command
+
+Validate a scene CSV and its subtitle cue CSV before synthesis:
+
+```bash
+.venv-qwen3-tts/bin/python scripts/validate_long_scene_inputs.py \
+  --scenes transcripts/scenes_<batch>.csv \
+  --cues transcripts/subtitle_cues_<batch>.csv \
+  --require-reviewed
+```
+
+For the first Skagway batch:
+
+```bash
+.venv-qwen3-tts/bin/python scripts/validate_long_scene_inputs.py \
+  --scenes transcripts/scenes_skagway_white_pass_railway_001.csv \
+  --cues transcripts/subtitle_cues_skagway_white_pass_railway_001.csv \
+  --require-reviewed
+```
+
+The validator checks:
+
+- required columns and required values;
+- unique scene IDs and clip names;
+- cue rows reference known scenes;
+- reviewed scenes have subtitle cues;
+- reviewed scenes have reviewed or accepted cues when `--require-reviewed` is
+  used;
+- optional start/end time pairs are both blank or both valid;
+- subtitle lines are not unusually long;
+- very long scene text is flagged as a chunking warning.
+
 ## Single-WAV Scene Strategy
 
 Preferred behavior:
