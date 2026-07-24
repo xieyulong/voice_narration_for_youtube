@@ -6,9 +6,12 @@ import unittest
 from argparse import Namespace
 from pathlib import Path
 
+import soundfile as sf
+
 from scripts.generate_long_scene_assets import (
     Scene,
     SubtitleCue,
+    assemble_timed_wav,
     cue_times,
     estimate_duration,
     split_text_chunks,
@@ -98,6 +101,52 @@ class GenerateLongSceneAssetsTest(unittest.TestCase):
                 rows = list(csv.DictReader(handle))
             self.assertEqual(rows[0]["clip_name"], "scene")
             self.assertEqual(rows[0]["duration_seconds"], "3.000")
+
+    def test_assemble_timed_wav_keeps_silence_between_cues(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            first = root / "first.wav"
+            second = root / "second.wav"
+            output = root / "output.wav"
+            sf.write(first, [0.25, 0.25], 2, subtype="PCM_16")
+            sf.write(second, [0.5, 0.5], 2, subtype="PCM_16")
+            cue_one = SubtitleCue(
+                conversation_id="trip",
+                scene_id="001",
+                cue_id="001",
+                cue_start="00:00:00",
+                cue_end="00:00:01",
+                subtitle_zh="一",
+                subtitle_en="One",
+                notes="",
+                status="reviewed",
+            )
+            cue_two = SubtitleCue(
+                conversation_id="trip",
+                scene_id="001",
+                cue_id="002",
+                cue_start="00:00:03",
+                cue_end="00:00:04",
+                subtitle_zh="二",
+                subtitle_en="Two",
+                notes="",
+                status="reviewed",
+            )
+
+            assemble_timed_wav(
+                generated_cues=[
+                    (cue_one, first, 0.0, 1.0),
+                    (cue_two, second, 3.0, 1.0),
+                ],
+                output_path=output,
+                sample_rate=2,
+                total_duration=4.0,
+            )
+
+            data, rate = sf.read(output, dtype="float32")
+            self.assertEqual(rate, 2)
+            self.assertEqual(len(data), 8)
+            self.assertTrue(abs(data[3]) < 0.01)
 
 
 if __name__ == "__main__":

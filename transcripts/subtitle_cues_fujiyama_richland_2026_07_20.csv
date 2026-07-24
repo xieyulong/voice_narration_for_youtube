@@ -1,0 +1,15 @@
+conversation_id,scene_id,cue_id,cue_start,cue_end,subtitle_zh,subtitle_en,notes,status
+alaska_trip_2026,001,001,00:00:04,00:00:12,上个星期天我们到镇上的 Fujiyama 吃铁板烧。,"Last Sunday, we went to Fujiyama in town for teppanyaki.",Opening title.,reviewed
+alaska_trip_2026,001,002,00:00:23,00:00:31,一开始，铁板上的火焰就把气氛带起来了。,"At the beginning, the flames on the grill set the mood.",Opening flame around 00:23:22.,reviewed
+alaska_trip_2026,001,003,00:00:38,00:00:49,热气和火光，让画面一下子变得很有现场感。,"The steam and firelight made the scene feel live right away.",Steam and grill atmosphere.,reviewed
+alaska_trip_2026,001,004,00:00:50,00:00:58,厨师在我们面前准备食材，也开始做一些小表演。,"The chef prepared the food in front of us and began small tricks.",Egg performance around 00:50.,reviewed
+alaska_trip_2026,001,005,00:01:28,00:01:37,中间有几个很有趣的互动。,"There were a few fun interactions in the middle.",Interactive setup.,reviewed
+alaska_trip_2026,001,006,00:01:38,00:01:47,厨师一边做饭，一边把食物抛给每一位客人。,"The chef cooked while tossing food to each guest.",Performance around 01:38:04.,reviewed
+alaska_trip_2026,001,007,00:01:48,00:01:56,大家都在看，也都在笑。,"Everyone watched and laughed.",Guest reaction.,reviewed
+alaska_trip_2026,001,008,00:02:05,00:02:13,炒饭慢慢成形以后，厨师还把它做成了一个心形。,"After the fried rice took shape, the chef made it into a heart.",Heart-shaped rice setup.,reviewed
+alaska_trip_2026,001,009,00:02:14,00:02:23,这个简单的小细节，让画面多了一点温度。,"That simple detail gave the scene a warmer feeling.",Heart-shaped rice around 02:12:14.,reviewed
+alaska_trip_2026,001,010,00:02:32,00:02:40,接着是经典的洋葱火山。,"Then came the classic onion volcano.",Onion volcano setup.,reviewed
+alaska_trip_2026,001,011,00:02:40,00:02:49,火焰从洋葱塔里冒出来，整个画面一下子亮了起来。,"The flame rose from the onion tower, and the whole scene lit up.",Onion volcano around 02:39:28.,reviewed
+alaska_trip_2026,001,012,00:03:25,00:03:34,最后，海鲜、牛排、鸡肉和蔬菜陆续上桌。,"Finally, seafood, steak, chicken, and vegetables came to the table.",Finished food begins.,reviewed
+alaska_trip_2026,001,013,00:03:36,00:03:45,这段视频记录的不是复杂的一顿饭。,"This video does not record a complicated meal.",Closing reflection.,reviewed
+alaska_trip_2026,001,014,00:03:46,00:03:56,而是一段轻松、热闹、值得留下的日常记忆。,"It records a relaxed, lively everyday memory worth keeping.",Closing memory.,reviewed

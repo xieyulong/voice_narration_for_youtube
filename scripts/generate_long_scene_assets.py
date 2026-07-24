@@ -10,6 +10,7 @@ import subprocess
 from dataclasses import dataclass, replace
 from pathlib import Path
 
+import numpy as np
 import soundfile as sf
 
 try:
@@ -152,7 +153,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--generation-mode",
-        choices=["auto", "single", "chunked"],
+        choices=["auto", "single", "chunked", "timed-cues"],
         default="auto",
         help=(
             "Audio generation mode when --synthesize is used. "
@@ -362,6 +363,69 @@ def generate_chunked_audio(
     return wav_duration(output_path)
 
 
+def generate_timed_cue_audio(
+    *,
+    model,
+    scene: Scene,
+    cues: list[SubtitleCue],
+    voice_profile: VoiceProfile,
+    reference: VoiceReference,
+    output_path: Path,
+    cue_audio_dir: Path,
+    sample_rate: int,
+) -> float:
+    if not cues:
+        raise ValueError(f"Scene {scene.scene_id}: no timed cues to synthesize")
+
+    scene_start = parse_timecode(scene.start_time) if scene.start_time else 0.0
+    scene_end = parse_timecode(scene.end_time) if scene.end_time else None
+    if scene_start is None:
+        raise ValueError(f"Scene {scene.scene_id}: invalid start_time {scene.start_time}")
+
+    cue_audio_dir.mkdir(parents=True, exist_ok=True)
+    generated_cues = []
+    for cue in cues:
+        cue_start = parse_timecode(cue.cue_start)
+        if cue_start is None:
+            raise ValueError(
+                f"Scene {scene.scene_id} cue {cue.cue_id}: cue_start is required "
+                "for timed-cues synthesis"
+            )
+        cue_scene = replace(scene, text=cue.subtitle_zh)
+        cue_path = cue_audio_dir / f"{scene.clip_name}_cue_{cue.cue_id}.wav"
+        LOGGER.info(
+            "Generating timed cue %s for %s at %s: %s",
+            cue.cue_id,
+            scene.clip_name,
+            cue.cue_start,
+            cue_path,
+        )
+        generate_audio(
+            model=model,
+            scene=cue_scene,
+            voice_profile=voice_profile,
+            reference=reference,
+            output_path=cue_path,
+            sample_rate=sample_rate,
+        )
+        duration = wav_duration(cue_path)
+        generated_cues.append((cue, cue_path, cue_start - scene_start, duration))
+
+    last_audio_end = max(start + duration for _, _, start, duration in generated_cues)
+    if scene_end is not None:
+        total_duration = max(scene_end - scene_start, last_audio_end)
+    else:
+        total_duration = last_audio_end
+
+    assemble_timed_wav(
+        generated_cues=generated_cues,
+        output_path=output_path,
+        sample_rate=sample_rate,
+        total_duration=total_duration,
+    )
+    return wav_duration(output_path)
+
+
 def split_text_chunks(text: str, max_chars: int) -> list[str]:
     normalized = " ".join(text.split())
     if not normalized:
@@ -414,6 +478,38 @@ def concatenate_wavs(input_paths: list[Path], output_path: Path) -> None:
         ["sox", *[str(path) for path in input_paths], str(output_path)],
         check=True,
     )
+
+
+def assemble_timed_wav(
+    *,
+    generated_cues: list[tuple[SubtitleCue, Path, float, float]],
+    output_path: Path,
+    sample_rate: int,
+    total_duration: float,
+) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    total_samples = max(int(round(total_duration * sample_rate)), 1)
+    timeline = np.zeros(total_samples, dtype=np.float32)
+
+    for cue, cue_path, start_seconds, _duration in generated_cues:
+        audio, source_rate = sf.read(cue_path, dtype="float32")
+        if source_rate != sample_rate:
+            raise ValueError(
+                f"Scene cue {cue.cue_id}: expected {sample_rate} Hz but got {source_rate}"
+            )
+        if audio.ndim > 1:
+            audio = audio.mean(axis=1)
+        start_sample = max(int(round(start_seconds * sample_rate)), 0)
+        end_sample = min(start_sample + len(audio), total_samples)
+        if end_sample <= start_sample:
+            continue
+        segment = audio[: end_sample - start_sample]
+        timeline[start_sample:end_sample] += segment
+
+    peak = float(np.max(np.abs(timeline))) if timeline.size else 0.0
+    if peak > 1.0:
+        timeline = timeline / peak
+    sf.write(output_path, timeline, sample_rate, subtype="PCM_16")
 
 
 def resample_with_sox(input_path: Path, output_path: Path, sample_rate: int) -> None:
@@ -485,7 +581,18 @@ def build_scene_assets(
         if args.synthesize:
             generation_mode = resolve_generation_mode(scene.text, args)
             LOGGER.info("Generating scene audio: %s", audio_path)
-            if generation_mode == "chunked_qwen3_tts":
+            if generation_mode == "timed_cue_qwen3_tts":
+                duration_seconds = generate_timed_cue_audio(
+                    model=model,
+                    scene=scene,
+                    cues=scene_cues,
+                    voice_profile=voice_profile,
+                    reference=selected_reference,
+                    output_path=audio_path,
+                    cue_audio_dir=chunk_root / scene.clip_name,
+                    sample_rate=args.sample_rate,
+                )
+            elif generation_mode == "chunked_qwen3_tts":
                 duration_seconds = generate_chunked_audio(
                     model=model,
                     scene=scene,
@@ -535,6 +642,8 @@ def build_scene_assets(
 
 
 def resolve_generation_mode(text: str, args: argparse.Namespace) -> str:
+    if args.generation_mode == "timed-cues":
+        return "timed_cue_qwen3_tts"
     if args.generation_mode == "chunked":
         return "chunked_qwen3_tts"
     if args.generation_mode == "single":

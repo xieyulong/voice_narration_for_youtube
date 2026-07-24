@@ -183,6 +183,22 @@ Long narration should use chunked synthesis on the current CPU setup. The
 generator concatenates internal chunk WAVs into one scene-level WAV and records
 `chunked_qwen3_tts` in the manifest.
 
+For short videos that need silence between narration segments, use timed-cue
+synthesis. In this mode each cue's `subtitle_zh` is spoken exactly, each
+`subtitle_en` translates that exact cue, and `cue_start` places the speech on
+the full scene timeline:
+
+```bash
+NUMBA_CACHE_DIR=/private/tmp/numba_cache \
+.venv-qwen3-tts/bin/python scripts/generate_long_scene_assets.py \
+  --batch-name fujiyama_richland_2026_07_20 \
+  --scenes transcripts/scenes_fujiyama_richland_2026_07_20.csv \
+  --cues transcripts/subtitle_cues_fujiyama_richland_2026_07_20.csv \
+  --profile-reference yulong_new_001 \
+  --generation-mode timed-cues \
+  --synthesize
+```
+
 Without `--synthesize`, the generator writes only scene-level bilingual SRT/VTT
 files and a manifest using estimated narration duration. This is useful for
 checking package shape before spending time on TTS generation.
