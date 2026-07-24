@@ -30,8 +30,15 @@ input content, not an architectural assumption.
 2. Read `docs/setup_and_private_assets.md`.
 3. Read `docs/long_scene_workflow.md`.
 4. Read `docs/long_scene_generation_instructions.md`.
-5. Use `docs/project_prompts.md` before starting work and before pausing or
-   exiting the project.
+5. Use `docs/development_workflow/standard_project_prompts.md` before starting
+   work, implementing approved changes, reviewing status, or pausing/exiting
+   the project.
+
+For daily use, invoke one numbered prompt file directly, for example:
+
+```text
+Read docs/development_workflow/prompts/02_project_session_start_prompt.md and execute its content.
+```
 
 ## Privacy
 

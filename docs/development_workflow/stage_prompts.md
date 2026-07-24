@@ -1,13 +1,19 @@
 # Stage Prompts
 
-This project uses the simpler operating prompts in:
+This project uses the standardized project prompts in:
+
+```text
+docs/development_workflow/standard_project_prompts.md
+```
+
+The older project-local prompts remain available in:
 
 ```text
 docs/project_prompts.md
 ```
 
-Use that file before starting work, before generating audio, and before pausing
-or exiting the project.
+Use the standardized prompts before starting work, implementing approved work,
+checking status, and pausing or exiting the project.
 
 For implementation work, keep the same core protocol:
 
