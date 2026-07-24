@@ -29,7 +29,8 @@ input content, not an architectural assumption.
 1. Read `docs/source_handoff.md`.
 2. Read `docs/setup_and_private_assets.md`.
 3. Read `docs/long_scene_workflow.md`.
-4. Use `docs/project_prompts.md` before starting work and before pausing or
+4. Read `docs/long_scene_generation_instructions.md`.
+5. Use `docs/project_prompts.md` before starting work and before pausing or
    exiting the project.
 
 ## Privacy
