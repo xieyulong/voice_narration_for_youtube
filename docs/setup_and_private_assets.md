@@ -130,7 +130,23 @@ The current copied local profile is:
 voice_profiles/owner_calm/profile.yaml
 ```
 
-It references:
+The active default reference should be the Yulong clean sample:
+
+```text
+name: yulong_new_001
+audio: samples/clean/sample_yulong_new_001_clean.wav
+```
+
+The corresponding raw recording copied from the old project is:
+
+```text
+samples/raw/Sample_YulongXie_New_001.wav
+```
+
+Use the clean WAV for Qwen3-TTS generation. The raw WAV is source material for
+future cleaning or comparison.
+
+The same profile may also keep alternate calm references:
 
 ```text
 samples/clean/calm_001.wav

@@ -145,6 +145,43 @@ The validator checks:
 - subtitle lines are not unusually long;
 - very long scene text is flagged as a chunking warning.
 
+## Generator Commands
+
+Preview the generation plan without writing files:
+
+```bash
+.venv-qwen3-tts/bin/python scripts/generate_long_scene_assets.py \
+  --batch-name skagway_white_pass_railway_001 \
+  --scenes transcripts/scenes_skagway_white_pass_railway_001.csv \
+  --cues transcripts/subtitle_cues_skagway_white_pass_railway_001.csv \
+  --dry-run
+```
+
+Write estimated-timing captions and a manifest without generating audio:
+
+```bash
+.venv-qwen3-tts/bin/python scripts/generate_long_scene_assets.py \
+  --batch-name skagway_white_pass_railway_001 \
+  --scenes transcripts/scenes_skagway_white_pass_railway_001.csv \
+  --cues transcripts/subtitle_cues_skagway_white_pass_railway_001.csv
+```
+
+Generate Qwen3-TTS audio only after confirming the exact inputs:
+
+```bash
+NUMBA_CACHE_DIR=/private/tmp/numba_cache \
+.venv-qwen3-tts/bin/python scripts/generate_long_scene_assets.py \
+  --batch-name skagway_white_pass_railway_001 \
+  --scenes transcripts/scenes_skagway_white_pass_railway_001.csv \
+  --cues transcripts/subtitle_cues_skagway_white_pass_railway_001.csv \
+  --profile-reference yulong_new_001 \
+  --synthesize
+```
+
+Without `--synthesize`, the generator writes only scene-level bilingual SRT/VTT
+files and a manifest using estimated narration duration. This is useful for
+checking package shape before spending time on TTS generation.
+
 ## Single-WAV Scene Strategy
 
 Preferred behavior:
