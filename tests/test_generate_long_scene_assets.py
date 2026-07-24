@@ -11,6 +11,7 @@ from scripts.generate_long_scene_assets import (
     SubtitleCue,
     cue_times,
     estimate_duration,
+    split_text_chunks,
     write_manifest,
     write_scene_captions,
 )
@@ -34,6 +35,11 @@ class GenerateLongSceneAssetsTest(unittest.TestCase):
         )
 
         self.assertEqual(cue_times(cue, 1, 4, 40.0), (10.0, 20.0))
+
+    def test_split_text_chunks_keeps_sentence_boundaries(self) -> None:
+        chunks = split_text_chunks("第一句很短。第二句也很短。第三句还是很短。", 12)
+
+        self.assertEqual(chunks, ["第一句很短。", "第二句也很短。", "第三句还是很短。"])
 
     def test_write_scene_captions_and_manifest(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

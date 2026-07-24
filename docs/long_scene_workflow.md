@@ -175,8 +175,13 @@ NUMBA_CACHE_DIR=/private/tmp/numba_cache \
   --scenes transcripts/scenes_skagway_white_pass_railway_001.csv \
   --cues transcripts/subtitle_cues_skagway_white_pass_railway_001.csv \
   --profile-reference yulong_new_001 \
+  --generation-mode chunked \
   --synthesize
 ```
+
+Long narration should use chunked synthesis on the current CPU setup. The
+generator concatenates internal chunk WAVs into one scene-level WAV and records
+`chunked_qwen3_tts` in the manifest.
 
 Without `--synthesize`, the generator writes only scene-level bilingual SRT/VTT
 files and a manifest using estimated narration duration. This is useful for

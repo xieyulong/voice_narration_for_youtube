@@ -7,7 +7,7 @@ import csv
 import logging
 import shutil
 import subprocess
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 import soundfile as sf
@@ -151,6 +151,21 @@ def parse_args() -> argparse.Namespace:
         help="Generate Qwen3-TTS WAV audio. Without this, only captions/manifest are written.",
     )
     parser.add_argument(
+        "--generation-mode",
+        choices=["auto", "single", "chunked"],
+        default="auto",
+        help=(
+            "Audio generation mode when --synthesize is used. "
+            "Auto uses chunked generation for long scene text."
+        ),
+    )
+    parser.add_argument(
+        "--chunk-max-chars",
+        type=int,
+        default=180,
+        help="Maximum Chinese text characters per chunk in chunked synthesis.",
+    )
+    parser.add_argument(
         "--overwrite",
         action="store_true",
         help="Allow replacing existing output files.",
@@ -232,6 +247,8 @@ def validate_runtime_inputs(
         raise ValueError("--estimated-chars-per-second must be greater than zero")
     if args.sample_rate <= 0:
         raise ValueError("--sample-rate must be greater than zero")
+    if args.chunk_max_chars <= 0:
+        raise ValueError("--chunk-max-chars must be greater than zero")
     if not voice_profile.references:
         raise ValueError("Voice profile has no references")
 
@@ -304,6 +321,101 @@ def generate_audio(
     return wav_duration(output_path)
 
 
+def generate_chunked_audio(
+    *,
+    model,
+    scene: Scene,
+    voice_profile: VoiceProfile,
+    reference: VoiceReference,
+    output_path: Path,
+    chunk_dir: Path,
+    sample_rate: int,
+    chunk_max_chars: int,
+) -> float:
+    chunks = split_text_chunks(scene.text, chunk_max_chars)
+    if not chunks:
+        raise ValueError(f"Scene {scene.scene_id}: no text chunks to synthesize")
+
+    chunk_dir.mkdir(parents=True, exist_ok=True)
+    chunk_paths = []
+    for index, chunk_text in enumerate(chunks, start=1):
+        chunk_scene = replace(scene, text=chunk_text)
+        chunk_path = chunk_dir / f"{scene.clip_name}_chunk_{index:03d}.wav"
+        LOGGER.info(
+            "Generating chunk %s/%s for %s: %s",
+            index,
+            len(chunks),
+            scene.clip_name,
+            chunk_path,
+        )
+        generate_audio(
+            model=model,
+            scene=chunk_scene,
+            voice_profile=voice_profile,
+            reference=reference,
+            output_path=chunk_path,
+            sample_rate=sample_rate,
+        )
+        chunk_paths.append(chunk_path)
+
+    concatenate_wavs(chunk_paths, output_path)
+    return wav_duration(output_path)
+
+
+def split_text_chunks(text: str, max_chars: int) -> list[str]:
+    normalized = " ".join(text.split())
+    if not normalized:
+        return []
+
+    sentences = []
+    current = []
+    for char in normalized:
+        current.append(char)
+        if char in "。！？!?":
+            sentence = "".join(current).strip()
+            if sentence:
+                sentences.append(sentence)
+            current = []
+    remainder = "".join(current).strip()
+    if remainder:
+        sentences.append(remainder)
+
+    chunks = []
+    current_chunk = ""
+    for sentence in sentences:
+        if len(sentence) > max_chars:
+            if current_chunk:
+                chunks.append(current_chunk)
+                current_chunk = ""
+            chunks.extend(split_long_text(sentence, max_chars))
+            continue
+        candidate = f"{current_chunk}{sentence}" if not current_chunk else f"{current_chunk}{sentence}"
+        if current_chunk and len(candidate) > max_chars:
+            chunks.append(current_chunk)
+            current_chunk = sentence
+        else:
+            current_chunk = candidate
+    if current_chunk:
+        chunks.append(current_chunk)
+    return chunks
+
+
+def split_long_text(text: str, max_chars: int) -> list[str]:
+    return [text[index : index + max_chars] for index in range(0, len(text), max_chars)]
+
+
+def concatenate_wavs(input_paths: list[Path], output_path: Path) -> None:
+    if not input_paths:
+        raise ValueError("No chunk WAV files were generated")
+    if shutil.which("sox") is None:
+        raise RuntimeError("SoX is required to concatenate generated WAV files")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run(
+        ["sox", *[str(path) for path in input_paths], str(output_path)],
+        check=True,
+    )
+
+
 def resample_with_sox(input_path: Path, output_path: Path, sample_rate: int) -> None:
     if shutil.which("sox") is None:
         raise RuntimeError("SoX is required to resample generated WAV files")
@@ -336,6 +448,7 @@ def build_scene_assets(
     selected_reference: VoiceReference,
 ) -> list[SceneAsset]:
     audio_dir = Path(args.audio_output_root) / args.batch_name
+    chunk_root = Path("output/audio_chunks") / args.batch_name
     caption_dir = Path(args.caption_output_root) / args.batch_name
     manifest_path = Path(args.manifest_dir) / f"manifest_{args.batch_name}.csv"
     planned_paths = [manifest_path]
@@ -370,16 +483,28 @@ def build_scene_assets(
         bilingual_vtt_path = caption_dir / f"{scene.clip_name}.bilingual.vtt"
 
         if args.synthesize:
+            generation_mode = resolve_generation_mode(scene.text, args)
             LOGGER.info("Generating scene audio: %s", audio_path)
-            duration_seconds = generate_audio(
-                model=model,
-                scene=scene,
-                voice_profile=voice_profile,
-                reference=selected_reference,
-                output_path=audio_path,
-                sample_rate=args.sample_rate,
-            )
-            generation_mode = "single_call_qwen3_tts"
+            if generation_mode == "chunked_qwen3_tts":
+                duration_seconds = generate_chunked_audio(
+                    model=model,
+                    scene=scene,
+                    voice_profile=voice_profile,
+                    reference=selected_reference,
+                    output_path=audio_path,
+                    chunk_dir=chunk_root / scene.clip_name,
+                    sample_rate=args.sample_rate,
+                    chunk_max_chars=args.chunk_max_chars,
+                )
+            else:
+                duration_seconds = generate_audio(
+                    model=model,
+                    scene=scene,
+                    voice_profile=voice_profile,
+                    reference=selected_reference,
+                    output_path=audio_path,
+                    sample_rate=args.sample_rate,
+                )
         else:
             duration_seconds = estimate_duration(scene.text, args.estimated_chars_per_second)
             generation_mode = "estimated_no_audio"
@@ -407,6 +532,16 @@ def build_scene_assets(
     if not args.dry_run:
         write_manifest(manifest_path, assets)
     return assets
+
+
+def resolve_generation_mode(text: str, args: argparse.Namespace) -> str:
+    if args.generation_mode == "chunked":
+        return "chunked_qwen3_tts"
+    if args.generation_mode == "single":
+        return "single_call_qwen3_tts"
+    if len(text) > args.chunk_max_chars:
+        return "chunked_qwen3_tts"
+    return "single_call_qwen3_tts"
 
 
 def write_scene_captions(
