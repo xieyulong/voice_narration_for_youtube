@@ -1,0 +1,10 @@
+conversation_id,scene_id,cue_id,cue_start,cue_end,subtitle_zh,subtitle_en,notes,status
+alaska_cruise_2026,004B,001,00:00:00,00:00:08,"现在我们已经通过新的隧道。","Now we have passed through the new tunnel.",Mile 18.8 Tunnel.,reviewed
+alaska_cruise_2026,004B,002,00:00:10,00:00:22,"正因为这条隧道的建成，列车不再需要经过 18A 钢桥，从而提高了运输能力和安全性。","Because of this tunnel, trains bypass the 18A bridge, improving capacity and safety.",Mile 18.8 Tunnel.,reviewed
+alaska_cruise_2026,004B,003,00:00:24,00:00:32,"这里可以看到著名的 1898 淘金古道遗迹。","Here we can see remains of the famous Trail of 98.",Mile 19.3 Trail of 98.,reviewed
+alaska_cruise_2026,004B,004,00:00:34,00:00:46,"一百多年前，数以万计的淘金者正是沿着这条崎岖山路，背负近一吨生活物资翻越白隘口。","Over a century ago, gold seekers carried nearly a ton of supplies over this rough trail.",Mile 19.3 Trail of 98.,reviewed
+alaska_cruise_2026,004B,005,00:00:48,00:00:58,"很多人最终抵达了育空，但更多人却因为严寒、疾病和艰苦环境而放弃了梦想。","Some reached the Yukon, but many gave up because of cold, disease, and hardship.",Mile 19.3 Trail of 98.,reviewed
+alaska_cruise_2026,004B,006,00:01:00,00:01:10,"这里就是美国和加拿大的边境，也是白隘口最高点。","This is the border between the United States and Canada, and the summit of White Pass.",Mile 20.4 White Pass Summit.,reviewed
+alaska_cruise_2026,004B,007,00:01:12,00:01:17,"海拔 2888 英尺。","The elevation is 2,888 feet.",Mile 20.4 White Pass Summit.,reviewed
+alaska_cruise_2026,004B,008,00:01:19,00:01:30,"淘金时代，加拿大骑警就在这里检查每一位进入加拿大的淘金者，确认他们是否携带足够维持一年生活的补给。","During the Gold Rush, Canadian police checked that each prospector had a year's supplies.",Mile 20.4 White Pass Summit.,reviewed
+alaska_cruise_2026,004B,009,00:01:32,00:01:35,"这也是整趟旅程真正意义上的终点。","This is also the true endpoint of the journey.",Mile 20.4 White Pass Summit.,reviewed
