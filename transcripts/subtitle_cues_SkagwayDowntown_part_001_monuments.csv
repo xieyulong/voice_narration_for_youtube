@@ -1,0 +1,12 @@
+conversation_id,scene_id,cue_id,cue_start,cue_end,subtitle_zh,subtitle_en,notes,status
+alaska_cruise_2026,SD001,001,00:00:00,00:00:12,"来到史凯威，最先映入眼帘的，就是这座淘金者纪念雕像。","Arriving in Skagway, the first thing we see is this Gold Rush monument.",Gold Rush Monument.,reviewed
+alaska_cruise_2026,SD001,002,00:00:14,00:00:28,"两位背着沉重行囊的淘金者，坚定地望向远方。","Two prospectors carrying heavy packs look firmly into the distance.",Gold Rush Monument.,reviewed
+alaska_cruise_2026,SD001,003,00:00:30,00:00:44,"他们仿佛正准备翻越白隘口，踏上寻找黄金的漫漫征程。","They seem ready to cross White Pass and begin the long search for gold.",Gold Rush Monument.,reviewed
+alaska_cruise_2026,SD001,004,00:00:46,00:00:58,"一百多年前，无数怀着梦想的人，就是从这里开始他们的淘金之旅。","More than a century ago, countless dreamers began their Gold Rush journey here.",Gold Rush Monument.,reviewed
+alaska_cruise_2026,SD001,005,00:01:00,00:01:08,"铁路，是史凯威最重要的历史象征。","The railroad is Skagway's most important historical symbol.",White Pass Railroad Display Car.,reviewed
+alaska_cruise_2026,SD001,006,00:01:10,00:01:24,"街边展示着一节保存完好的白隘口铁路车厢。","A well-preserved White Pass railcar is displayed along the street.",White Pass Railroad Display Car.,reviewed
+alaska_cruise_2026,SD001,007,00:01:26,00:01:40,"它提醒着人们，这条铁路不仅改变了史凯威，也见证了克朗代克淘金热最辉煌的年代。","It reminds us how this railway changed Skagway and witnessed the Klondike Gold Rush.",White Pass Railroad Display Car.,reviewed
+alaska_cruise_2026,SD001,008,00:01:42,00:01:54,"下午，我们也将从这里登上这条传奇铁路，展开期待已久的白隘口观光之旅。","This afternoon, we will board this legendary railway for the White Pass scenic ride.",White Pass Railroad Display Car.,reviewed
+alaska_cruise_2026,SD001,009,00:01:56,00:02:08,"这座拥有金色圆顶的建筑，就是史凯威最著名的 Golden North Hotel，金北酒店。","This building with the golden dome is Skagway's famous Golden North Hotel.",Golden North Hotel.,reviewed
+alaska_cruise_2026,SD001,010,00:02:10,00:02:20,"它建于淘金热时期，至今仍是小镇最具代表性的历史建筑之一。","Built during the Gold Rush, it remains one of the town's landmark historic buildings.",Golden North Hotel.,reviewed
+alaska_cruise_2026,SD001,011,00:02:22,00:02:34,"据说，这座金色圆顶象征着当年淘金者对于财富与梦想的追求。","The golden dome is said to symbolize the prospectors' pursuit of wealth and dreams.",Golden North Hotel.,reviewed

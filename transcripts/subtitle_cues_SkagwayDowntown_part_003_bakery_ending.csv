@@ -1,0 +1,14 @@
+conversation_id,scene_id,cue_id,cue_start,cue_end,subtitle_zh,subtitle_en,notes,status
+alaska_cruise_2026,SD003,001,00:00:00,00:00:10,"眼前这栋独具特色的建筑，就是著名的 Arctic Brotherhood Hall。","This distinctive building is the famous Arctic Brotherhood Hall.",Arctic Brotherhood Hall.,reviewed
+alaska_cruise_2026,SD003,002,00:00:12,00:00:26,"最特别的是，它的外墙全部由漂流木拼接而成。","Most remarkably, its exterior is entirely covered with pieces of driftwood.",Arctic Brotherhood Hall.,reviewed
+alaska_cruise_2026,SD003,003,00:00:28,00:00:40,"因此，它也被认为是史凯威最具辨识度的历史建筑之一。","That makes it one of Skagway's most recognizable historic buildings.",Arctic Brotherhood Hall.,reviewed
+alaska_cruise_2026,SD003,004,00:00:42,00:00:52,"如今，这里既是游客中心，也是许多游客拍照留念的热门地点。","Today it is a visitor center and a popular photo stop for travelers.",Arctic Brotherhood Hall.,reviewed
+alaska_cruise_2026,SD003,005,00:00:54,00:01:04,"逛累了，当然要品尝一下史凯威最有名的 Doughboy 面包。","After walking around, it is time to try Skagway's famous Doughboy bread.",Klondike Doughboy Bakery.,reviewed
+alaska_cruise_2026,SD003,006,00:01:06,00:01:14,"这家小店几乎成为每位游客都会光顾的地方。","This small shop is a stop almost every visitor seems to make.",Klondike Doughboy Bakery.,reviewed
+alaska_cruise_2026,SD003,007,00:01:16,00:01:30,"刚出炉的 Doughboy 外酥内软，再撒上一层肉桂糖和糖粉，香气扑鼻。","Fresh Doughboy is crisp outside and soft inside, with cinnamon sugar and powdered sugar.",Klondike Doughboy Bakery.,reviewed
+alaska_cruise_2026,SD003,008,00:01:32,00:01:44,"虽然只是简单的一块面包，却成为许多游客来到史凯威最难忘的味道。","It is simple bread, but for many visitors, it becomes a memorable taste of Skagway.",Klondike Doughboy Bakery.,reviewed
+alaska_cruise_2026,SD003,009,00:01:46,00:02:00,"短短几个小时，我们漫步在史凯威的大街小巷，欣赏保存完好的淘金时代建筑。","In just a few hours, we walked Skagway's streets and saw preserved Gold Rush buildings.",Suggested ending.,reviewed
+alaska_cruise_2026,SD003,010,00:02:02,00:02:14,"我们了解了这里丰富的历史，也品尝了当地最受欢迎的 Doughboy 面包。","We learned some of its rich history and tasted the town's popular Doughboy bread.",Suggested ending.,reviewed
+alaska_cruise_2026,SD003,011,00:02:16,00:02:24,"不过，这只是今天精彩旅程的开始。","But this is only the beginning of today's journey.",Suggested ending.,reviewed
+alaska_cruise_2026,SD003,012,00:02:26,00:02:40,"稍作休息之后，我们将再次搭乘接驳小艇返回岸边，登上拥有百年历史的白隘口铁路。","After a short rest, we will take the tender back and board the White Pass railway.",Suggested ending.,reviewed
+alaska_cruise_2026,SD003,013,00:02:42,00:02:50,"展开另一段更加壮丽的高山铁路之旅。","Then another grand mountain railway journey will begin.",Suggested ending.,reviewed

@@ -1,0 +1,13 @@
+conversation_id,scene_id,cue_id,cue_start,cue_end,subtitle_zh,subtitle_en,notes,status
+alaska_cruise_2026,SD002,001,00:00:00,00:00:10,"这里是克朗代克淘金热国家历史公园游客中心。","This is the Klondike Gold Rush National Historical Park Visitor Center.",Visitor Center.,reviewed
+alaska_cruise_2026,SD002,002,00:00:12,00:00:26,"通过展览、文物和历史资料，它讲述了一百多年前那场改变阿拉斯加和育空命运的淘金热。","Through exhibits and artifacts, it tells the Gold Rush story of Alaska and Yukon.",Visitor Center.,reviewed
+alaska_cruise_2026,SD002,003,00:00:28,00:00:38,"如果时间充裕，非常值得停下来，了解这段精彩的历史。","If you have time, it is worth stopping here to learn this history.",Visitor Center.,reviewed
+alaska_cruise_2026,SD002,004,00:00:40,00:00:50,"穿过市中心，一座古朴的教堂静静地坐落在树林前。","Walking through downtown, an old church sits quietly before the trees.",Historic Church.,reviewed
+alaska_cruise_2026,SD002,005,00:00:52,00:01:04,"它已有一百多年的历史，见证了史凯威从淘金热时代一路走到今天。","It has over a century of history, witnessing Skagway from the Gold Rush to today.",Historic Church.,reviewed
+alaska_cruise_2026,SD002,006,00:01:06,00:01:14,"与热闹的商业街相比，这里显得格外宁静。","Compared with the busy shopping street, this place feels especially peaceful.",Historic Church.,reviewed
+alaska_cruise_2026,SD002,007,00:01:16,00:01:30,"继续往前走，我们看到几位身穿十九世纪服装的演员，在楼上的窗户向游客挥手。","Farther along, performers in 19th-century costumes wave to visitors from upstairs windows.",Historic Hotel Performance.,reviewed
+alaska_cruise_2026,SD002,008,00:01:32,00:01:42,"她们扮演的是淘金热时期酒馆和娱乐场所里的女性角色。","They play women from the saloons and entertainment halls of the Gold Rush era.",Historic Hotel Performance.,reviewed
+alaska_cruise_2026,SD002,009,00:01:44,00:01:56,"轻松幽默的互动表演，让市中心仿佛回到了那个热闹非凡的淘金年代。","Their playful performance makes downtown feel like it has returned to the Gold Rush days.",Historic Hotel Performance.,reviewed
+alaska_cruise_2026,SD002,010,00:01:58,00:02:08,"演员们不仅服装十分考究，连举手投足都充满那个年代的味道。","Their costumes are detailed, and even their gestures feel true to that era.",Close-up Performer.,reviewed
+alaska_cruise_2026,SD002,011,00:02:10,00:02:20,"她们热情地和游客互动，也成为史凯威街头一道独特而有趣的风景。","Their warm interaction with visitors becomes a unique and fun street scene.",Close-up Performer.,reviewed
+alaska_cruise_2026,SD002,012,00:02:22,00:02:34,"这样的现场表演，让历史不再只是博物馆里的展品，而是真正活了起来。","This live performance makes history feel alive, not just something inside a museum.",Close-up Performer.,reviewed
