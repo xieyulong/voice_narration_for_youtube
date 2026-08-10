@@ -1,0 +1,20 @@
+conversation_id,scene_id,cue_id,cue_start,cue_end,subtitle_zh,subtitle_en,notes,status
+alaska_cruise_2026,SD005,001,00:00:00,00:00:10,"来到市中心，另一家不能错过的老店就是 Kirmse's Curios。","In downtown, another classic shop not to miss is Kirmse's Curios.",Kirmse's Curios.,reviewed
+alaska_cruise_2026,SD005,002,00:00:13,00:00:25,"店里收藏了大量阿拉斯加原住民艺术品、化石、矿石和古董。","The shop holds Native Alaskan art, fossils, minerals, and antiques.",Kirmse's Curios.,reviewed
+alaska_cruise_2026,SD005,003,00:00:28,00:00:38,"这里更像是一座小型博物馆，每一件商品似乎都有自己的故事。","It feels like a small museum, where every item seems to have its own story.",Kirmse's Curios.,reviewed
+alaska_cruise_2026,SD005,004,00:00:41,00:00:52,"街角这几栋色彩鲜艳的建筑，充满了淘金时代的西部风情。","These colorful corner buildings are full of Gold Rush western character.",Skagway Old Town and Alaskan Fudge.,reviewed
+alaska_cruise_2026,SD005,005,00:00:55,00:01:05,"左边是著名的 Alaskan Fudge，每天都能闻到浓浓的奶糖香味。","On the left is Alaskan Fudge, where the sweet smell fills the street.",Skagway Old Town and Alaskan Fudge.,reviewed
+alaska_cruise_2026,SD005,006,00:01:08,00:01:22,"旁边则是 Skagway Old Town 商店，各种当地纪念品和特色商品琳琅满目。","Next door, Skagway Old Town is filled with local souvenirs and specialty goods.",Skagway Old Town and Alaskan Fudge.,reviewed
+alaska_cruise_2026,SD005,007,00:01:25,00:01:35,"这里非常适合买些伴手礼带回家。","It is a good place to pick up gifts to bring home.",Skagway Old Town and Alaskan Fudge.,reviewed
+alaska_cruise_2026,SD005,008,00:01:38,00:01:48,"如果想买得更划算，可以来这家 Skagway Outlet Store。","For better deals, this Skagway Outlet Store is worth a look.",Skagway Outlet Store.,reviewed
+alaska_cruise_2026,SD005,009,00:01:51,00:02:03,"这里经常有折扣商品，包括服装、纪念品和阿拉斯加特色礼品。","It often has discounted clothing, souvenirs, and Alaska-themed gifts.",Skagway Outlet Store.,reviewed
+alaska_cruise_2026,SD005,010,00:02:06,00:02:15,"对于喜欢购物的游客来说，也是不错的选择。","For visitors who enjoy shopping, it is another good option.",Skagway Outlet Store.,reviewed
+alaska_cruise_2026,SD005,011,00:02:18,00:02:27,"这家 Del Sol 很受游客欢迎。","This Del Sol store is very popular with visitors.",Del Sol.,reviewed
+alaska_cruise_2026,SD005,012,00:02:30,00:02:43,"它最大的特色，就是销售会随着紫外线变化颜色的衣服、帽子和纪念品。","Its specialty is clothing, hats, and souvenirs that change color in UV light.",Del Sol.,reviewed
+alaska_cruise_2026,SD005,013,00:02:46,00:02:56,"不少游客都会买一件，当作阿拉斯加之旅最有趣的纪念。","Many visitors buy one as a fun memory of their Alaska trip.",Del Sol.,reviewed
+alaska_cruise_2026,SD005,014,00:02:59,00:03:07,"最后来到 The Pantheon。","Finally, we arrive at The Pantheon.",The Pantheon.,reviewed
+alaska_cruise_2026,SD005,015,00:03:10,00:03:22,"这座建筑曾是淘金热时期最豪华的剧院之一，也是当年歌舞表演的重要场所。","This was once one of the finest Gold Rush theaters and performance venues.",The Pantheon.,reviewed
+alaska_cruise_2026,SD005,016,00:03:25,00:03:37,"如今，它已经成为克朗代克淘金热国家历史公园的一部分。","Today it is part of the Klondike Gold Rush National Historical Park.",The Pantheon.,reviewed
+alaska_cruise_2026,SD005,017,00:03:40,00:03:54,"历史建筑、特色商店、百年酒馆和博物馆交织在一起，让史凯威仿佛停在淘金时代。","Historic buildings, shops, saloons, and museums make Skagway feel frozen in time.",Transition.,reviewed
+alaska_cruise_2026,SD005,018,00:03:57,00:04:08,"虽然这里只是一座人口不到一千人的小镇，却每年迎来数十万名游客。","Though fewer than a thousand people live here, hundreds of thousands visit each year.",Transition.,reviewed
+alaska_cruise_2026,SD005,019,00:04:11,00:04:24,"无论是购物、美食，还是了解阿拉斯加的淘金历史，史凯威都值得放慢脚步，细细品味。","For shopping, food, or Gold Rush history, Skagway is worth slowing down to enjoy.",Transition.,reviewed

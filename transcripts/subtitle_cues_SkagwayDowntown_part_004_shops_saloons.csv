@@ -1,0 +1,17 @@
+conversation_id,scene_id,cue_id,cue_start,cue_end,subtitle_zh,subtitle_en,notes,status
+alaska_cruise_2026,SD004,001,00:00:00,00:00:12,"继续漫步在百老汇大街，两旁林立着各种特色商店。","Continuing along Broadway Street, we pass many distinctive local shops.",Klothes Rush.,reviewed
+alaska_cruise_2026,SD004,002,00:00:15,00:00:25,"这家 Klothes Rush 是史凯威最大的旅游纪念品商店之一。","Klothes Rush is one of Skagway's largest souvenir shops.",Klothes Rush.,reviewed
+alaska_cruise_2026,SD004,003,00:00:28,00:00:42,"从阿拉斯加纪念衫、保暖外套，到各种当地特色礼品，应有尽有。","From Alaska T-shirts and warm jackets to local gifts, it has almost everything.",Klothes Rush.,reviewed
+alaska_cruise_2026,SD004,004,00:00:45,00:00:57,"几乎每位游客都会进去逛上一圈。","Almost every visitor seems to stop in and take a look.",Klothes Rush.,reviewed
+alaska_cruise_2026,SD004,005,00:01:00,00:01:10,"这栋蓝色建筑就是著名的 Skagway Trading Company。","This blue building is the well-known Skagway Trading Company.",Skagway Trading Company.,reviewed
+alaska_cruise_2026,SD004,006,00:01:13,00:01:25,"这里不仅出售阿拉斯加特色商品，还有许多当地手工艺品和纪念礼物。","It sells Alaska-themed goods, local crafts, and souvenir gifts.",Skagway Trading Company.,reviewed
+alaska_cruise_2026,SD004,007,00:01:28,00:01:40,"对于第一次来到史凯威的游客来说，这里是最受欢迎的购物地点之一。","For first-time visitors, it is one of the most popular shopping stops.",Skagway Trading Company.,reviewed
+alaska_cruise_2026,SD004,008,00:01:43,00:01:55,"眼前这栋白色建筑，就是史凯威最著名的 Red Onion Saloon。","This white building is Skagway's famous Red Onion Saloon.",Red Onion Saloon.,reviewed
+alaska_cruise_2026,SD004,009,00:01:58,00:02:10,"它建于 1898 年淘金热时期，最早是一家合法经营的妓院。","Built during the 1898 Gold Rush, it first operated as a legal brothel.",Red Onion Saloon.,reviewed
+alaska_cruise_2026,SD004,010,00:02:13,00:02:28,"如今，它已经成为酒吧和历史博物馆，游客还可以参加著名的 Brothel Tour。","Today it is a bar and museum, and visitors can join the famous Brothel Tour.",Red Onion Saloon.,reviewed
+alaska_cruise_2026,SD004,011,00:02:31,00:02:43,"这栋带有圆形塔楼的维多利亚风格建筑，非常具有十九世纪的特色。","This Victorian building with a round tower has a strong 19th-century character.",Corrington's Jewelry.,reviewed
+alaska_cruise_2026,SD004,012,00:02:46,00:02:58,"这里是 Corrington's Jewelry，经营阿拉斯加玉石、象牙雕刻和各种珠宝首饰。","This is Corrington's Jewelry, known for jade, ivory carvings, and fine jewelry.",Corrington's Jewelry.,reviewed
+alaska_cruise_2026,SD004,013,00:03:01,00:03:10,"即使不购物，建筑本身也十分值得欣赏。","Even without shopping, the building itself is worth admiring.",Corrington's Jewelry.,reviewed
+alaska_cruise_2026,SD004,014,00:03:13,00:03:23,"抬头望向山坡，你会发现一座巨大的山体时钟。","Looking up toward the hillside, you can see a large mountain clock.",Kirmse's Clock.,reviewed
+alaska_cruise_2026,SD004,015,00:03:26,00:03:34,"这就是著名的 Kirmse's Clock。","This is the famous Kirmse's Clock.",Kirmse's Clock.,reviewed
+alaska_cruise_2026,SD004,016,00:03:37,00:03:50,"它已有近百年历史，是史凯威最具代表性的地标之一。","Nearly a century old, it remains one of Skagway's most iconic landmarks.",Kirmse's Clock.,reviewed
