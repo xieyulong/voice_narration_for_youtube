@@ -1,0 +1,23 @@
+conversation_id,scene_id,cue_id,cue_start,cue_end,subtitle_zh,subtitle_en,notes,status
+alaska_cruise_2026,SD007,001,00:00:00,00:00:12,"漫步在史凯威的街道上，仿佛回到了十九世纪的淘金时代。","Walking through Skagway feels like stepping back into the 19th-century Gold Rush.",Street scene.,reviewed
+alaska_cruise_2026,SD007,002,00:00:15,00:00:28,"这里保留了大量历史建筑，木造外墙和复古招牌充满西部风情。","Historic buildings, wooden facades, and vintage signs give it a western feeling.",Street scene.,reviewed
+alaska_cruise_2026,SD007,003,00:00:31,00:00:44,"这也让史凯威成为阿拉斯加最有特色的小镇之一。","This makes Skagway one of Alaska's most distinctive towns.",Street scene.,reviewed
+alaska_cruise_2026,SD007,004,00:00:47,00:00:58,"这里就是白隘口铁路的历史车站。","This is the historic depot of the White Pass railway.",White Pass Depot.,reviewed
+alaska_cruise_2026,SD007,005,00:01:01,00:01:14,"每天都有来自邮轮的游客在这里集合搭车。","Every day, cruise passengers gather here to board the train.",White Pass Depot.,reviewed
+alaska_cruise_2026,SD007,006,00:01:17,00:01:32,"车站已有一百多年历史，见证了淘金热时期无数人的梦想。","The station has over a century of history and witnessed many Gold Rush dreams.",White Pass Depot.,reviewed
+alaska_cruise_2026,SD007,007,00:01:35,00:01:48,"走进车站内部，可以看到关于铁路历史的展示。","Inside the station, there are exhibits about the railway's history.",Station interior.,reviewed
+alaska_cruise_2026,SD007,008,00:01:51,00:02:04,"包括模型火车、老照片以及当年的文物。","They include model trains, old photos, and historic artifacts.",Station interior.,reviewed
+alaska_cruise_2026,SD007,009,00:02:07,00:02:20,"虽然规模不大，却让人更了解这条铁路如何改变整个地区的发展。","It is small, but it helps explain how this railway changed the region.",Station interior.,reviewed
+alaska_cruise_2026,SD007,010,00:02:23,00:02:36,"这是史凯威规模最大的礼品店之一，Glacier Bay Trading Company。","This is Glacier Bay Trading Company, one of Skagway's largest gift shops.",Glacier Bay Trading Company.,reviewed
+alaska_cruise_2026,SD007,011,00:02:39,00:02:52,"从阿拉斯加特色服饰、鲑鱼制品，到各式纪念品，都可以在这里找到。","From Alaska clothing and salmon products to souvenirs, you can find them here.",Glacier Bay Trading Company.,reviewed
+alaska_cruise_2026,SD007,012,00:02:55,00:03:06,"如果想带点伴手礼回家，这里是不错的选择。","It is a good place to buy gifts to take home.",Glacier Bay Trading Company.,reviewed
+alaska_cruise_2026,SD007,013,00:03:09,00:03:20,"Broadway 是史凯威最热闹的主要街道。","Broadway is Skagway's busiest main street.",Broadway.,reviewed
+alaska_cruise_2026,SD007,014,00:03:23,00:03:36,"街道两旁都是十九世纪风格建筑，商店、餐厅、珠宝店和纪念品店林立。","Both sides are lined with shops, restaurants, jewelry stores, and souvenir shops.",Broadway.,reviewed
+alaska_cruise_2026,SD007,015,00:03:39,00:03:50,"天气好的时候，慢慢散步就是最舒服的旅行方式。","On a nice day, walking slowly is the best way to enjoy it.",Broadway.,reviewed
+alaska_cruise_2026,SD007,016,00:03:53,00:04:05,"在树林旁，我发现了一块特别的彩绘石头。","Near the trees, I found a special painted stone.",Painted stone.,reviewed
+alaska_cruise_2026,SD007,017,00:04:08,00:04:22,"上面写着：回到家乡时，我一定会告诉大家，史凯威真的太棒了。","It says: When I return home, I will tell everyone that Skagway is wonderful.",Painted stone.,reviewed
+alaska_cruise_2026,SD007,018,00:04:25,00:04:36,"虽然只是一块普通的石头，却充满了旅人对这里的美好回忆。","It is just a simple stone, but it carries a traveler's warm memory.",Painted stone.,reviewed
+alaska_cruise_2026,SD007,019,00:04:39,00:04:52,"史凯威虽然只是邮轮航线上的一个小镇，却融合了自然风光、淘金历史和人文特色。","Skagway may be small, but it blends scenery, Gold Rush history, and local character.",Closing.,reviewed
+alaska_cruise_2026,SD007,020,00:04:55,00:05:08,"从百年铁路到海鲜美食，从历史建筑到悠闲街道，每个角落都值得探索。","From old railways and seafood to historic streets, every corner is worth exploring.",Closing.,reviewed
+alaska_cruise_2026,SD007,021,00:05:11,00:05:24,"如果有机会来到阿拉斯加，我非常推荐在这里安排一整天。","If you visit Alaska, I highly recommend spending a full day here.",Closing.,reviewed
+alaska_cruise_2026,SD007,022,00:05:27,00:05:40,"希望大家喜欢今天的分享，我们下一个目的地再见！","I hope you enjoyed today's video. See you at the next destination!",Closing.,reviewed

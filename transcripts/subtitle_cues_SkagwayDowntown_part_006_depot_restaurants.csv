@@ -1,0 +1,19 @@
+conversation_id,scene_id,cue_id,cue_start,cue_end,subtitle_zh,subtitle_en,notes,status
+alaska_cruise_2026,SD006,001,00:00:00,00:00:12,"欢迎来到阿拉斯加史凯威。","Welcome to Skagway, Alaska.",White Pass Train Shoppe.,reviewed
+alaska_cruise_2026,SD006,002,00:00:15,00:00:30,"这里是著名的白隘口与育空铁路游客中心，也是搭乘百年历史观光火车的起点。","This is the White Pass and Yukon Route visitor center and the train ride starting point.",White Pass Train Shoppe.,reviewed
+alaska_cruise_2026,SD006,003,00:00:33,00:00:48,"出发前，许多游客都会先到 White Pass Train Shoppe 购买纪念品、车票和一杯咖啡。","Before departure, many visitors stop here for souvenirs, tickets, and coffee.",White Pass Train Shoppe.,reviewed
+alaska_cruise_2026,SD006,004,00:00:51,00:01:02,"为今天精彩的铁路之旅做好准备。","It is a nice way to get ready for today's railway journey.",White Pass Train Shoppe.,reviewed
+alaska_cruise_2026,SD006,005,00:01:05,00:01:16,"这就是今天要搭乘的白隘口观光火车。","This is the White Pass scenic train we will ride today.",White Pass scenic train.,reviewed
+alaska_cruise_2026,SD006,006,00:01:19,00:01:34,"它建于 1898 年克朗代克淘金热时期，原本是为了运送淘金者和物资而修建。","Built during the 1898 Klondike Gold Rush, it once carried prospectors and supplies.",White Pass scenic train.,reviewed
+alaska_cruise_2026,SD006,007,00:01:37,00:01:50,"如今，它已成为阿拉斯加最著名的观光铁路之一。","Today it is one of Alaska's most famous scenic railways.",White Pass scenic train.,reviewed
+alaska_cruise_2026,SD006,008,00:01:53,00:02:06,"沿途将穿越峡谷、瀑布、悬崖和高山，是许多人最期待的体验。","The route passes canyons, waterfalls, cliffs, and mountains.",White Pass scenic train.,reviewed
+alaska_cruise_2026,SD006,009,00:02:09,00:02:22,"结束火车之旅后，我们来到当地评价不错的 Salty Siren 餐厅。","After the train ride, we visit the well-rated Salty Siren restaurant.",Salty Siren.,reviewed
+alaska_cruise_2026,SD006,010,00:02:25,00:02:38,"这里供应新鲜的阿拉斯加海鲜、汉堡和精酿啤酒。","It serves fresh Alaska seafood, burgers, and craft beer.",Salty Siren.,reviewed
+alaska_cruise_2026,SD006,011,00:02:41,00:02:52,"轻松的气氛很适合休息补充体力。","The relaxed atmosphere is perfect for resting and recharging.",Salty Siren.,reviewed
+alaska_cruise_2026,SD006,012,00:02:55,00:03:07,"来到阿拉斯加，一定不能错过当地的新鲜海鲜。","In Alaska, local fresh seafood is something not to miss.",Skagway Fish Company.,reviewed
+alaska_cruise_2026,SD006,013,00:03:10,00:03:24,"Skagway Fish Company 最有名的就是帝王蟹腿和比目鱼炸鱼薯条。","Skagway Fish Company is known for king crab legs and halibut fish and chips.",Skagway Fish Company.,reviewed
+alaska_cruise_2026,SD006,014,00:03:27,00:03:40,"虽然价格不便宜，但许多游客都认为非常值得。","It is not cheap, but many visitors think it is worth it.",Skagway Fish Company.,reviewed
+alaska_cruise_2026,SD006,015,00:03:43,00:03:56,"史凯威除了铁路之外，还有许多精彩的岸上行程。","Besides the railway, Skagway offers many shore excursions.",Southeast Tours.,reviewed
+alaska_cruise_2026,SD006,016,00:03:59,00:04:10,"Southeast Tours 提供育空地区和野生动物等不同路线。","Southeast Tours offers routes to the Yukon and wildlife areas.",Southeast Tours.,reviewed
+alaska_cruise_2026,SD006,017,00:04:13,00:04:23,"也有前往冰川等景点的当地旅行团。","There are also local tours to glaciers and other sights.",Southeast Tours.,reviewed
+alaska_cruise_2026,SD006,018,00:04:26,00:04:39,"如果没有提前预订邮轮公司的行程，也可以在这里选择当地旅行团。","If you did not book through the cruise line, you can choose a local tour here.",Southeast Tours.,reviewed
