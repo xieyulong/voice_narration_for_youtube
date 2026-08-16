@@ -5,6 +5,12 @@
 This project continues the original local `voice_clone` project, but it should
 not modify that repository unless the user explicitly asks.
 
+For the latest active narration task, read this stable handoff pointer first:
+
+```text
+docs/current_project_handoff.md
+```
+
 Original repository:
 
 ```text

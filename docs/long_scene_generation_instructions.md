@@ -75,6 +75,12 @@ output/manifests/
 
 For each new long narration batch, prepare two CSV files.
 
+For timing-table based videos, one source timing row is a narration block, not
+necessarily one subtitle cue. Draft the Chinese narration and then split it
+immediately into short bilingual segments. The Step 2 source should emit one
+subtitle cue row per segment so long subtitle cues are never created in the
+first place.
+
 ### Scene CSV
 
 Path pattern:
@@ -137,6 +143,12 @@ status
 Rules:
 
 - Keep each cue to two displayed lines: English first, Chinese second.
+- Keep each cue short enough that each language usually fits on one line in
+  DaVinci Resolve.
+- Make `subtitle_en` a faithful translation of `subtitle_zh`; do not use a
+  shortened English summary.
+- If one timing row contains several meaning units, create several subtitle cue
+  rows inside that timing window before generating SRT/VTT files.
 - Leave `cue_start` and `cue_end` blank if exact timing is not known yet.
 - Use `status: reviewed` when the cue wording is approved.
 - The generator will distribute blank cue timing evenly across the actual WAV
@@ -172,7 +184,9 @@ For the current Skagway batch:
 .venv-qwen3-tts/bin/python scripts/validate_long_scene_inputs.py \
   --scenes transcripts/scenes_skagway_white_pass_railway_001.csv \
   --cues transcripts/subtitle_cues_skagway_white_pass_railway_001.csv \
-  --require-reviewed
+  --require-reviewed \
+  --max-cue-chars 90 \
+  --fail-on-cue-length
 ```
 
 Expected result:

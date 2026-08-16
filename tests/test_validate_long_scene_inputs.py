@@ -138,6 +138,62 @@ class ValidateLongSceneInputsTest(unittest.TestCase):
 
             self.assertEqual(main_with_args("--scenes", str(scenes), "--cues", str(cues)), 1)
 
+    def test_fail_on_cue_length_rejects_long_subtitle_line(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            scenes = Path(temp_dir) / "scenes.csv"
+            cues = Path(temp_dir) / "cues.csv"
+            write_csv(
+                scenes,
+                SCENE_FIELDS,
+                [
+                    {
+                        "conversation_id": "trip",
+                        "section_id": "skagway",
+                        "scene_id": "001",
+                        "clip_name": "skagway_scene",
+                        "scene_title": "Skagway Scene",
+                        "start_time": "",
+                        "end_time": "",
+                        "speaker": "owner_calm",
+                        "style": "reflective",
+                        "language": "zh",
+                        "text": "这是一个测试场景。",
+                        "notes": "",
+                        "status": "reviewed",
+                    }
+                ],
+            )
+            write_csv(
+                cues,
+                CUE_FIELDS,
+                [
+                    {
+                        "conversation_id": "trip",
+                        "scene_id": "001",
+                        "cue_id": "001",
+                        "cue_start": "",
+                        "cue_end": "",
+                        "subtitle_zh": "这是一个测试场景。",
+                        "subtitle_en": "This subtitle line is intentionally too long.",
+                        "notes": "",
+                        "status": "reviewed",
+                    }
+                ],
+            )
+
+            self.assertEqual(
+                main_with_args(
+                    "--scenes",
+                    str(scenes),
+                    "--cues",
+                    str(cues),
+                    "--max-cue-chars",
+                    "10",
+                    "--fail-on-cue-length",
+                ),
+                1,
+            )
+
 
 def write_csv(path: Path, fieldnames: list[str], rows: list[dict[str, str]]) -> None:
     with path.open("w", encoding="utf-8", newline="") as handle:

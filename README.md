@@ -26,11 +26,12 @@ input content, not an architectural assumption.
 
 ## Start Here
 
-1. Read `docs/source_handoff.md`.
-2. Read `docs/setup_and_private_assets.md`.
-3. Read `docs/long_scene_workflow.md`.
-4. Read `docs/long_scene_generation_instructions.md`.
-5. Use `docs/development_workflow/standard_project_prompts.md` before starting
+1. Read `docs/current_project_handoff.md` for the active task handoff.
+2. Read `docs/source_handoff.md`.
+3. Read `docs/setup_and_private_assets.md`.
+4. Read `docs/long_scene_workflow.md`.
+5. Read `docs/long_scene_generation_instructions.md`.
+6. Use `docs/development_workflow/standard_project_prompts.md` before starting
    work, implementing approved changes, reviewing status, or pausing/exiting
    the project.
 

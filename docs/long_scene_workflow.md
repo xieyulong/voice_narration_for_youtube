@@ -21,6 +21,8 @@ editor-facing unit.
 - Preserve accepted scene outputs by using batch names.
 - Separate spoken narration from subtitle cue timing.
 - Treat subtitles as a presentation layer, not a different story.
+- Author short subtitle segments before SRT/VTT generation; do not create one
+  long subtitle cue and split it afterward.
 - Allow one scene to be regenerated without overwriting other accepted scenes.
 
 ## Folder Model
@@ -97,8 +99,14 @@ status
 Rules:
 
 - Each cue displays at most two lines: English first, Chinese second.
-- `subtitle_zh` should stay semantically faithful to the narration.
-- `subtitle_en` should be a compact translation of the cue.
+- Each cue should be short enough to fit as one English line and one Chinese
+  line in DaVinci Resolve whenever practical.
+- `subtitle_zh` is the exact Chinese narration segment for that cue.
+- `subtitle_en` is a faithful English translation of the exact Chinese cue, not
+  a shortened summary.
+- One timing-table row may produce multiple subtitle cue rows. Split at natural
+  phrase or sentence boundaries during cue authoring, before generating
+  SRT/VTT files.
 - Cue timing is relative to the scene WAV unless a script explicitly converts
   it to the full timeline.
 
@@ -144,6 +152,17 @@ The validator checks:
 - optional start/end time pairs are both blank or both valid;
 - subtitle lines are not unusually long;
 - very long scene text is flagged as a chunking warning.
+
+For final subtitle review, enforce the line-length budget:
+
+```bash
+.venv-qwen3-tts/bin/python scripts/validate_long_scene_inputs.py \
+  --scenes transcripts/scenes_<batch>.csv \
+  --cues transcripts/subtitle_cues_<batch>.csv \
+  --require-reviewed \
+  --max-cue-chars 90 \
+  --fail-on-cue-length
+```
 
 ## Generator Commands
 
@@ -255,7 +274,10 @@ Before synthesis, validate:
 - `scene_id` and `clip_name` are unique;
 - reviewed scenes have non-empty text;
 - subtitle cues exist for reviewed scenes;
-- subtitle cues have English and Chinese text;
+- subtitle cues have exact Chinese narration segments and faithful English
+  translations;
+- timing-table rows that contain long narration are expanded into multiple
+  subtitle cue rows before caption generation;
 - cue order is stable;
 - planned duration is present for timeline-bound scenes;
 - estimated narration density is not obviously too high.

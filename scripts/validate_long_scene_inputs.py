@@ -85,6 +85,11 @@ def parse_args() -> argparse.Namespace:
         default=90,
         help="Warn when either subtitle line exceeds this character count.",
     )
+    parser.add_argument(
+        "--fail-on-cue-length",
+        action="store_true",
+        help="Fail instead of warn when either subtitle line exceeds --max-cue-chars.",
+    )
     return parser.parse_args()
 
 
@@ -241,10 +246,14 @@ def validate_cues(
 
         for field in ["subtitle_zh", "subtitle_en"]:
             if len(row[field]) > args.max_cue_chars:
-                result.warn(
+                message = (
                     f"{label}: {field} is {len(row[field])} characters; "
                     f"recommended max is {args.max_cue_chars}"
                 )
+                if args.fail_on_cue_length:
+                    result.error(message)
+                else:
+                    result.warn(message)
 
 
 def validate_scene_cue_coverage(

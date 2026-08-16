@@ -613,8 +613,14 @@ def build_scene_assets(
                     sample_rate=args.sample_rate,
                 )
         else:
-            duration_seconds = estimate_duration(scene.text, args.estimated_chars_per_second)
-            generation_mode = "estimated_no_audio"
+            duration_seconds = planned_duration_seconds(scene) or estimate_duration(
+                scene.text,
+                args.estimated_chars_per_second,
+            )
+            if args.generation_mode == "auto":
+                generation_mode = "estimated_no_audio"
+            else:
+                generation_mode = resolve_generation_mode(scene.text, args)
 
         if not args.dry_run:
             write_scene_captions(
@@ -815,7 +821,11 @@ def main() -> int:
     try:
         scene_data = read_csv(Path(args.scenes))
         cue_data = read_csv(Path(args.cues))
-        validation_args = argparse.Namespace(require_reviewed=True, max_cue_chars=90)
+        validation_args = argparse.Namespace(
+            require_reviewed=True,
+            max_cue_chars=90,
+            fail_on_cue_length=False,
+        )
         result = validate(scene_data, cue_data, validation_args)
         if not result.ok:
             for error in result.errors:
