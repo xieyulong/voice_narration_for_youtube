@@ -91,13 +91,19 @@ The overall naming string is:
 WhitePassScenicTrainRide_Redo_2026_06_24_27m15s
 ```
 
-Four timed-cue batches were created:
+Five timed-cue batches are part of the current White Pass redo deliverable set.
+Parts 001 through 004 cover the main 27:15.83 source-video timeline in
+contiguous Resolve sections. Part 005 is an integrated supplemental overlay for
+additional user-supplied narration in the first six minutes; place it at
+`00:00:00.000` with the matching subtitle file so its internal timed insertions
+line up with the same source video.
 
 ```text
 WhitePassScenicTrainRide_Redo_2026_06_24_27m15s_part_001_mile_00_00_to_08_59
 WhitePassScenicTrainRide_Redo_2026_06_24_27m15s_part_002_mile_08_59_to_16_04
 WhitePassScenicTrainRide_Redo_2026_06_24_27m15s_part_003_mile_16_04_to_21_57
 WhitePassScenicTrainRide_Redo_2026_06_24_27m15s_part_004_mile_21_57_to_27_15
+WhitePassScenicTrainRide_Redo_2026_06_24_27m15s_part_005_mile_misc
 ```
 
 Each batch has:
@@ -131,10 +137,11 @@ Run from the repository root with:
 
 ### `scripts/build_whitepass_step2_csvs.py`
 
-Converts the reviewed Step 1 narration draft into four reviewed scene CSVs and
-four reviewed subtitle-cue CSVs. It normalizes the workbook timecodes to
-video-relative timings, preserves separate outbound/return cues, and assigns
-the four batch windows.
+Converts the reviewed Step 1 narration draft into reviewed scene CSVs and
+reviewed subtitle-cue CSVs. It normalizes the workbook timecodes to
+video-relative timings, preserves separate outbound/return cues, assigns the
+four main batch windows, and emits the part 005 misc insertion batch from
+`MISC_NARRATIONS`.
 
 Run from the repository root with:
 
@@ -184,13 +191,15 @@ Generated WAV durations:
 | Part 002 | 425.033 seconds | 33 |
 | Part 003 | 352.733 seconds | 16 |
 | Part 004 | 318.667 seconds | 33 |
-| Total | 1,635.833 seconds | 103 |
+| Main-video total | 1,635.833 seconds | 103 |
+| Part 005 misc overlay | 360.000 seconds | 16 |
 
 ## DaVinci Resolve Upload Files
 
-Import these four WAV files as audio and place each one at the matching start
-time shown in its filename. Import the matching bilingual SRT file as the
-subtitle track.
+Import parts 001 through 004 as the main narration audio and place each one at
+the matching start time shown in its filename. Import part 005 as an additional
+early-video overlay starting at `00:00:00.000`. Import the matching bilingual
+SRT files as subtitle tracks.
 
 ### Part 001: 00:00 to 08:59
 
@@ -248,6 +257,24 @@ Subtitles:
 output/captions/WhitePassScenicTrainRide_Redo_2026_06_24_27m15s_part_004_mile_21_57_to_27_15/WhitePassScenicTrainRide_Redo_2026_06_24_27m15s_part_004_mile_21_57_to_27_15.bilingual.srt
 ```
 
+### Part 005: misc insertions for 00:00 to 06:00
+
+Audio:
+
+```text
+output/audio_scenes/WhitePassScenicTrainRide_Redo_2026_06_24_27m15s_part_005_mile_misc/WhitePassScenicTrainRide_Redo_2026_06_24_27m15s_part_005_mile_misc.wav
+```
+
+Subtitles:
+
+```text
+output/captions/WhitePassScenicTrainRide_Redo_2026_06_24_27m15s_part_005_mile_misc/WhitePassScenicTrainRide_Redo_2026_06_24_27m15s_part_005_mile_misc.bilingual.srt
+```
+
+Part 005 contains silence before and between timed insertions. It should be
+treated as part of the same White Pass video package, not as a separate
+destination workflow.
+
 The corresponding `.bilingual.vtt` files are in the same caption folders and
 can be used for alternate subtitle workflows or review. The manifest files are
 for timing and verification; they are not required for the basic Resolve
@@ -255,14 +282,18 @@ import.
 
 ## Verification Completed
 
-- All four scene and cue CSV pairs passed `validate_long_scene_inputs.py
+- All five scene and cue CSV pairs passed `validate_long_scene_inputs.py
   --require-reviewed --max-cue-chars 90 --fail-on-cue-length`.
 - All generated WAV files were checked with `soxi`.
 - All WAV files are mono, 48 kHz, 16-bit PCM.
-- All four SRT files, VTT files, and manifests exist.
-- Manifest duration total equals the source video duration.
+- All five SRT files, VTT files, and manifests exist.
+- Manifest duration total for parts 001 through 004 equals the source video
+  duration; part 005 is a six-minute overlay for additional early-video
+  narration.
 - Both helper scripts passed Python compilation with a writable cache prefix.
 - `git diff --check` passed.
+- Part 005 has two known dense-cue overlap risks around `03:38-03:56`; review
+  that section in DaVinci Resolve before final acceptance.
 
 ## Files Created In This Session
 
@@ -273,6 +304,7 @@ docs/long_scene_workflow.md
 docs/long_scene_generation_instructions.md
 docs/ai_sessions/2026-08-15_WhitePassScenicTrainRide_step1_analysis.md
 docs/ai_sessions/2026-08-15_WhitePassScenicTrainRide_redo_wrapup.md
+docs/ai_sessions/2026-08-16_WhitePassScenicTrainRide_part005_misc_summary.md
 scripts/generate_long_scene_assets.py
 scripts/validate_long_scene_inputs.py
 scripts/build_whitepass_step1_annotation.py
@@ -309,6 +341,8 @@ it unless the user explicitly decides otherwise.
 12. Create reviewed scene and subtitle-cue CSVs.
 13. Run the validator before synthesis.
 14. Generate timed-cue WAV, SRT, VTT, and manifest outputs batch by batch.
+    For overlay batches like White Pass part 005, start the scene at
+    `00:00:00.000` and use cue starts to place each insertion.
 15. Verify WAV format, durations, cue counts, caption files, and manifests.
 16. Do not commit unless the user explicitly requests a commit. When approved,
     stage only the relevant source documents and CSVs; leave generated media and

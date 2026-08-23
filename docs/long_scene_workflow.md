@@ -101,9 +101,18 @@ Rules:
 - Each cue displays at most two lines: English first, Chinese second.
 - Each cue should be short enough to fit as one English line and one Chinese
   line in DaVinci Resolve whenever practical.
+- The automated final-review gate is `--max-cue-chars 90
+  --fail-on-cue-length`; treat any cue over that limit as not ready for
+  generation or delivery.
+- The 90-character limit is a source-text budget, not a visual proof. Final
+  DaVinci one-line fit still requires visual review because font, subtitle
+  style, resolution, and safe-area settings affect wrapping.
 - `subtitle_zh` is the exact Chinese narration segment for that cue.
 - `subtitle_en` is a faithful English translation of the exact Chinese cue, not
   a shortened summary.
+- Do not merge several Chinese meaning units into one English summary. If the
+  English translation needs compression to fit, split the Chinese cue into
+  shorter reviewed cues instead.
 - One timing-table row may produce multiple subtitle cue rows. Split at natural
   phrase or sentence boundaries during cue authoring, before generating
   SRT/VTT files.
@@ -163,6 +172,10 @@ For final subtitle review, enforce the line-length budget:
   --max-cue-chars 90 \
   --fail-on-cue-length
 ```
+
+This validation must pass for each reviewed batch before synthesis or delivery.
+Passing validation means the source text follows the project line-length budget;
+it does not replace checking the rendered subtitle track in DaVinci Resolve.
 
 ## Generator Commands
 
@@ -276,6 +289,8 @@ Before synthesis, validate:
 - subtitle cues exist for reviewed scenes;
 - subtitle cues have exact Chinese narration segments and faithful English
   translations;
+- each English line translates the same cue's Chinese line and is not a
+  cross-cue paraphrase or summary;
 - timing-table rows that contain long narration are expanded into multiple
   subtitle cue rows before caption generation;
 - cue order is stable;

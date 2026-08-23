@@ -4,14 +4,20 @@ This is the stable entry point for the latest active narration workflow.
 
 ## Current Task Handoff
 
-Read this dated wrap-up for the most recent completed White Pass narration task:
+Read this dated summary for the latest completed White Pass narration task:
+
+```text
+docs/ai_sessions/2026-08-16_WhitePassScenicTrainRide_part005_misc_summary.md
+```
+
+Read this prior dated wrap-up for the four main White Pass narration batches:
 
 ```text
 docs/ai_sessions/2026-08-15_WhitePassScenicTrainRide_redo_wrapup.md
 ```
 
-It records the workflow, scripts, source files, generated DaVinci Resolve
-deliverables, validation results, and restart procedure.
+Together, these files record the workflow, scripts, source files, generated
+DaVinci Resolve deliverables, validation results, and restart procedure.
 
 The associated Step 1 research record is:
 

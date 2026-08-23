@@ -48,3 +48,9 @@ output/packages/*
 # Tool outputs
 logs/
 tmp/
+
+# Local WhitePass reference inputs
+Time_point_WhitePassScenicTrian_archived.xlsx
+~$*.xlsx
+materials_for_whitepass_train/PNG_*.PNG
+materials_for_whitepass_train/Time_point_WhitePassScenicTrian.xlsx

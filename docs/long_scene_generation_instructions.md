@@ -81,6 +81,13 @@ immediately into short bilingual segments. The Step 2 source should emit one
 subtitle cue row per segment so long subtitle cues are never created in the
 first place.
 
+For final delivery, every reviewed subtitle cue must pass the validator with
+`--max-cue-chars 90 --fail-on-cue-length`. This is the automated source-text
+budget used to keep each English and Chinese line short enough for DaVinci
+Resolve. It is not a substitute for final visual review in Resolve, because
+font, subtitle style, resolution, and safe-area settings determine actual
+wrapping.
+
 ### Scene CSV
 
 Path pattern:
@@ -145,8 +152,12 @@ Rules:
 - Keep each cue to two displayed lines: English first, Chinese second.
 - Keep each cue short enough that each language usually fits on one line in
   DaVinci Resolve.
+- Enforce the source-text limit with `--max-cue-chars 90
+  --fail-on-cue-length` before generation or delivery.
 - Make `subtitle_en` a faithful translation of `subtitle_zh`; do not use a
   shortened English summary.
+- If the English line would become a summary to fit the budget, split the
+  Chinese narration into shorter natural cue segments instead.
 - If one timing row contains several meaning units, create several subtitle cue
   rows inside that timing window before generating SRT/VTT files.
 - Leave `cue_start` and `cue_end` blank if exact timing is not known yet.

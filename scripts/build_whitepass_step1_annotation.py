@@ -496,6 +496,124 @@ def narration_pair(index: int) -> tuple[str, str]:
     return english, chinese
 
 
+MISC_NARRATIONS = [
+    (
+        "01:00:07:03",
+        [
+            (
+                "Today is day five of our Discovery Princess cruise from Vancouver to Anchorage.",
+                "今天是我们乘坐“探索公主号”从温哥华前往安克雷奇航程的第五天。",
+            ),
+            (
+                "After arriving in Skagway, we explored the town's historic downtown that morning.",
+                "邮轮抵达史凯威后，我们上午游览了这座小镇历史悠久的市中心。",
+            ),
+            (
+                "Now we are taking the shuttle ashore again to board the White Pass scenic train.",
+                "现在，我们今天第二次乘坐接驳船上岸，准备搭乘白隘口观光火车。",
+            ),
+            (
+                "Although Skagway has under 1,000 residents, its port is packed with cruise passengers.",
+                "史凯威虽然人口不足一千，但港口依然挤满了来自各艘邮轮的游客。",
+            ),
+        ],
+    ),
+    (
+        "01:02:20:02",
+        [
+            (
+                "The train has no assigned seats, so passengers can choose any open seat.",
+                "火车不设指定座位，乘客可以任选空位就座。",
+            ),
+        ],
+    ),
+    (
+        "01:02:58:10",
+        [
+            (
+                "The helicopter overhead likely carries visitors to nearby glaciers and other sights.",
+                "盘旋在空中的直升机，很可能正载着游客前往附近的冰川和其他景点。",
+            ),
+        ],
+    ),
+    (
+        "01:03:16:23",
+        [
+            (
+                "The conductor checked our tickets, and the attendant explained the safety rules.",
+                "列车员检查了车票，乘务员随后讲解了安全规定。",
+            ),
+        ],
+    ),
+    (
+        "01:03:30:20",
+        [
+            (
+                "As the train slowly leaves Skagway, the White Pass railway journey begins.",
+                "随着火车缓缓驶出史凯威，白隘口铁路之旅正式开始。",
+            ),
+        ],
+    ),
+    (
+        "01:03:38:28",
+        [
+            (
+                "This 110-mile railway was built during the 1898 Klondike Gold Rush.",
+                "这条铁路全长一百一十英里，修建于 1898 年的克朗代克淘金热时期。",
+            ),
+        ],
+    ),
+    (
+        "01:03:48:12",
+        [
+            (
+                "Back then, thousands of prospectors started here for Canada's Yukon goldfields.",
+                "当年，成千上万的淘金者正是从这里踏上前往加拿大育空地区的寻金之路。",
+            ),
+        ],
+    ),
+    (
+        "01:03:56:02",
+        [
+            (
+                "In just over twenty miles, we will climb from sea level to nearly 3,000 feet.",
+                "短短二十多英里，我们就将从海平面一路攀升到接近三千英尺的白隘口。",
+            ),
+        ],
+    ),
+    (
+        "01:04:30:24",
+        [
+            (
+                "Passengers begin stepping onto the open platforms between the cars.",
+                "乘客们开始走到车厢连接处的露天平台。",
+            ),
+            (
+                "They can enjoy better views and a more immersive experience.",
+                "在那里可以欣赏更好的景色，获得更身临其境的体验。",
+            ),
+        ],
+    ),
+    (
+        "01:05:00:00",
+        [
+            (
+                "A reminder: if you stay on the open platform, wear warm clothing.",
+                "特别提醒：如果打算长时间待在露天平台，一定要穿上保暖衣物。",
+            ),
+            (
+                "After the morning downtown tour, I left my heavy coat in the cabin.",
+                "上午游览完市中心后，我把厚外套留在了船舱里。",
+            ),
+            (
+                "I did not expect to spend hours outside on the train, and regretted it later.",
+                "因为没想到会在火车旅途中在户外待上几个小时，后来十分后悔。",
+            ),
+        ],
+    ),
+]
+
+
 def inline_cell(reference: str, value: str, style: int) -> str:
     escaped = escape(value)
     return (
