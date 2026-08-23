@@ -171,6 +171,15 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Allow replacing existing output files.",
     )
+    parser.add_argument(
+        "--reuse-existing-cue-audio",
+        action="store_true",
+        help=(
+            "In timed-cues mode, reuse existing per-cue WAV files instead of "
+            "regenerating them. Use only when the cue text for existing files "
+            "has not changed."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -373,6 +382,7 @@ def generate_timed_cue_audio(
     output_path: Path,
     cue_audio_dir: Path,
     sample_rate: int,
+    reuse_existing_cue_audio: bool,
 ) -> float:
     if not cues:
         raise ValueError(f"Scene {scene.scene_id}: no timed cues to synthesize")
@@ -393,6 +403,11 @@ def generate_timed_cue_audio(
             )
         cue_scene = replace(scene, text=cue.subtitle_zh)
         cue_path = cue_audio_dir / f"{scene.clip_name}_cue_{cue.cue_id}.wav"
+        if reuse_existing_cue_audio and cue_path.exists():
+            LOGGER.info("Reusing timed cue %s for %s: %s", cue.cue_id, scene.clip_name, cue_path)
+            duration = wav_duration(cue_path)
+            generated_cues.append((cue, cue_path, cue_start - scene_start, duration))
+            continue
         LOGGER.info(
             "Generating timed cue %s for %s at %s: %s",
             cue.cue_id,
@@ -591,6 +606,7 @@ def build_scene_assets(
                     output_path=audio_path,
                     cue_audio_dir=chunk_root / scene.clip_name,
                     sample_rate=args.sample_rate,
+                    reuse_existing_cue_audio=args.reuse_existing_cue_audio,
                 )
             elif generation_mode == "chunked_qwen3_tts":
                 duration_seconds = generate_chunked_audio(

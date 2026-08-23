@@ -4,6 +4,12 @@ This is the stable entry point for the latest active narration workflow.
 
 ## Current Task Handoff
 
+Read this dated summary for the latest active narration task:
+
+```text
+docs/ai_sessions/2026-08-23_SkagwayDowntown_redo_12m42s_summary.md
+```
+
 Read this dated summary for the latest completed White Pass narration task:
 
 ```text
