@@ -7,6 +7,12 @@ This is the stable entry point for the latest active narration workflow.
 Read this dated summary for the latest active narration task:
 
 ```text
+docs/ai_sessions/2026-08-24_SkagwayDowntown_tight_redo_12m42s_summary.md
+```
+
+Read this dated summary for the previous full Skagway redo task:
+
+```text
 docs/ai_sessions/2026-08-23_SkagwayDowntown_redo_12m42s_summary.md
 ```
 
