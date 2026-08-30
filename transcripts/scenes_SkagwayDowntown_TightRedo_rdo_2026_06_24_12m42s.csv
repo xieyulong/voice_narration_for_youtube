@@ -1,0 +1,15 @@
+conversation_id,section_id,scene_id,clip_name,scene_title,start_time,end_time,speaker,style,language,text,notes,status
+alaska_cruise_2026,SkagwayDowntown_TightRedo_rdo,SDT001,SkagwayDowntown_TightRedo_rdo_2026_06_24_12m42s,Skagway Downtown Tight Redo rdo 12m42s,00:00:00.000,00:12:42.000,yulong_new_001,calm documentary travel narration,zh,"今天是我们乘坐 公主邮轮的发现号从加拿大温哥华出发后的第五天，我们来到了阿拉斯加的史凯威。
+另外三艘邮轮也陆续抵达了 史凯威。我们的 公主邮轮的发现号今天没有直接靠岸，需要乘接驳船上岸。这与几年前港口发生的山体滑坡以及码头安全限制有关。
+这里是历史悠久的 白隘口火车站。
+这台巨大的机器是 白隘口铁路使用过的旋转式除雪车，前方的巨大叶轮专门用来清除山间铁路上的厚雪。
+从这里开始，我们沿着 史凯威 最著名的 百老汇大街慢慢往前走。
+前面带有金色圆顶的是 史凯威 著名的 黄金北方酒店，也是 百老汇上很容易辨认的历史建筑。
+这座外墙非常特别的建筑就是当年的“北极兄弟会会馆”，它的外墙全部由漂流木拼接而成。
+万神殿曾是淘金热时期最豪华的剧院之一，也是当年歌舞表演的重要场所。
+前面这座很醒目的石头建筑是史凯威市政厅.  它最初计划作为一所学校使用。  它也是史凯威唯一的石砌建筑，
+这里是历史悠久的 柯姆斯奇珍店。
+这栋黄绿相间的建筑是历史上的林奇与肯尼迪男装及百货商店
+来到史凯威,我们当然也没有错过这里很有名的克朗代克炸面饼店,刚出炉的 油炸面饼外酥内软,再撒上一层肉桂糖和糖粉，香气扑鼻。,虽然只是简单的一块炸面团，却成为许多游客来到史凯威最难忘的味道。我们也买了一些，趁热尝尝。
+逛完 史凯威市中心，我们沿着原路慢慢返回港口。
+这是我们第二次来到 史凯威。和上一次一样，这座小城给我的感觉并不只是一个邮轮港口。短短几条街上仍然保存着许多克朗代克淘金热留下来的建筑和故事。上午的市区漫步也只是今天行程的前半段。接下来，我们将回到港口，登上白隘口景观列车。沿着一百多年前淘金者走过的方向进入群山，开始今天下午最精彩的一段旅程","Reduced narration batch from draft_Skagway_Downtone.csv; same 12m42s video; new non-overwriting TightRedo naming.; rdo timing rebuild preserving the same draft text and cue wording; following cue starts adjusted to avoid overlap truncation, final cues 32-35 made contiguous.",reviewed

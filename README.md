@@ -24,6 +24,19 @@ input content, not an architectural assumption.
 - Bilingual subtitles as a presentation layer.
 - DaVinci Resolve-ready audio and subtitle outputs.
 
+## Latest Completed Task
+
+The latest completed narration package is:
+
+```text
+SkagwayDowntown_TightRedo_rdo_2026_06_24_12m42s
+```
+
+Start from `docs/current_project_handoff.md` for the active handoff and
+`docs/ai_sessions/2026-08-29_SkagwayDowntown_tight_redo_rdo_12m42s_summary.md`
+for the task summary, generated deliverable paths, validation results, and
+return context.
+
 ## Start Here
 
 1. Read `docs/current_project_handoff.md` for the active task handoff.
