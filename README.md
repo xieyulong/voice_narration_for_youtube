@@ -29,11 +29,11 @@ input content, not an architectural assumption.
 The latest completed narration package is:
 
 ```text
-SkagwayDowntown_TightRedo_rdo_2026_06_24_12m42s
+Ironman703_WashingtonTriCities_2026_09_20_continuous
 ```
 
 Start from `docs/current_project_handoff.md` for the active handoff and
-`docs/ai_sessions/2026-08-29_SkagwayDowntown_tight_redo_rdo_12m42s_summary.md`
+`docs/ai_sessions/2026-09-21_Ironman703_WashingtonTriCities_continuous_summary.md`
 for the task summary, generated deliverable paths, validation results, and
 return context.
 

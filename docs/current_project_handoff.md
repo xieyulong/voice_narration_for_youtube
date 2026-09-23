@@ -8,7 +8,7 @@ latest completed narration task.
 Read this dated summary for the latest completed narration task:
 
 ```text
-docs/ai_sessions/2026-08-29_SkagwayDowntown_tight_redo_rdo_12m42s_summary.md
+docs/ai_sessions/2026-09-21_Ironman703_WashingtonTriCities_continuous_summary.md
 ```
 
 Read this dated summary for the previous active Skagway tight redo task:
@@ -40,7 +40,7 @@ DaVinci Resolve deliverables, validation results, and restart procedure. The
 current latest completed batch is:
 
 ```text
-SkagwayDowntown_TightRedo_rdo_2026_06_24_12m42s
+Ironman703_WashingtonTriCities_2026_09_20_continuous
 ```
 
 The associated Step 1 research record is:
