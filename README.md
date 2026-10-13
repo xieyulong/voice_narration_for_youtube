@@ -47,6 +47,8 @@ return context.
 6. Use `docs/development_workflow/standard_project_prompts.md` before starting
    work, implementing approved changes, reviewing status, or pausing/exiting
    the project.
+7. Read `docs/voice_clone_and_narration_workflow_summary.md` for the complete
+   voice-reference, narration-generation, subtitle, and YouTube delivery flow.
 
 For daily use, invoke one numbered prompt file directly, for example:
 
