@@ -3,6 +3,12 @@
 This project continues the original `voice_clone` workflow for longer
 conversation-style Standard Chinese travel narration.
 
+Public GitHub repository:
+
+```text
+https://github.com/xieyulong/voice_narration_for_youtube
+```
+
 The goal is to preserve the reliable local Qwen3-TTS path while redesigning the
 data model and generation flow around scene-level narration:
 

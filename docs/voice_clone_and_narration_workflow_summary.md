@@ -43,22 +43,24 @@ this document use macOS shell syntax.
 
 ### 3. Get The Repository
 
-The project owner must provide the repository URL or a project archive. With a
-Git URL, run:
+The public GitHub repository is:
 
-    git clone <repository-url> voice_clone_NextStage
-    cd voice_clone_NextStage
+    https://github.com/xieyulong/voice_narration_for_youtube
+
+Clone it with:
+
+    git clone https://github.com/xieyulong/voice_narration_for_youtube.git
+    cd voice_narration_for_youtube
+
+The repository is public, but the private voice samples, voice profile, local
+Qwen3-TTS model, and generated WAV files are not included. They must be
+transferred separately with the speaker's authorization.
 
 Open this folder in Codex. The first request should be:
 
     Read AGENTS.md, README.md, docs/current_project_handoff.md, and
     docs/voice_clone_and_narration_workflow_summary.md. Report the setup
     status before changing anything.
-
-Do not assume that cloning the repository provides the private voice samples,
-voice profile, local Qwen3-TTS model, or generated WAV files. Those assets are
-intentionally excluded from git and must be transferred separately with the
-speaker's authorization.
 
 ### 4. Create The Local Python Environment
 
